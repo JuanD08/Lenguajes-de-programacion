@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Palíndromo o Suma </title>
+</head>
+<body>
+
+    <h2> Verificar si un número es palíndromo o sumar dígitos </h2>
+
+    <input type="number" id="numero" placeholder="Ingresa un número">
+    <button onclick="verificarNumero()">INGRESAR NUMERO</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function verificarNumero() {
+            var numero = document.getElementById("numero").value;
+            var numeroStr = numero.toString();
+            var numeroInvertido = numeroStr.split('').reverse().join('');
+
+            if (numeroStr === numeroInvertido) {
+                document.getElementById("resultado").innerHTML = numero + " es un número palíndromo.";
+            } else if (numeroStr.length === 4) {
+                var digito1 = parseInt(numeroStr[0]);
+                var digito2 = parseInt(numeroStr[1]);
+                var digito3 = parseInt(numeroStr[2]);
+                var digito4 = parseInt(numeroStr[3]);
+                var suma = digito1 + digito2 + digito3 + digito4;
+                document.getElementById("resultado").innerHTML = numero + " no es un palíndromo. La suma de sus dígitos es: " + suma;
+            } else {
+                document.getElementById("resultado").innerHTML = "Por favor, ingresa un número de dos dígitos.";
+            }
+        }
+    </script>
+
+</body>
+</html>
